@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-from .prediction import pred_class
+from prediction import pred_class
 import torch
 
 # Set title 
