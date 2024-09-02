@@ -12,6 +12,7 @@ st.header('Please upload a picture')
 # Load Model 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = torch.load('model.pth', map_location=device)
+print(type(model)) 
 
 # Optional: Convert model to float16 if supported
 # model = model.to(torch.float16)
