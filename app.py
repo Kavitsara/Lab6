@@ -12,8 +12,13 @@ st.header('Please upload a picture')
 # Load Model 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = torch.load('model.pth', map_location=device)
-model = model.to(torch.float16)  # Ensure the model is in float16 if needed
-model.to(device).eval()  # Ensure the model is on the correct device and in evaluation mode
+
+# Optional: Convert model to float16 if supported
+# Uncomment the following line if you are sure that float16 is supported and needed
+# model = model.to(dtype=torch.float16)
+
+model = model.to(device)  # Ensure the model is on the correct device
+model.eval()  # Set the model to evaluation mode
 
 # Display image & Prediction 
 uploaded_image = st.file_uploader('Choose an image', type=['jpg', 'jpeg', 'png'])
