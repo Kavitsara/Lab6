@@ -1,2 +1,3 @@
 Flask
+pip install torch
 torch
