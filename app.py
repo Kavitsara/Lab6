@@ -11,7 +11,7 @@ st.header('Please upload a picture')
 
 # Load Model 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = torch.load('mobilenetv3_large_1004.pt', map_location=device)
+model = torch.load('model.pth', map_location=device)
 model = model.to(torch.float16)  # Ensure the model is in float16 if needed
 model.to(device).eval()  # Ensure the model is on the correct device and in evaluation mode
 
@@ -22,7 +22,7 @@ if uploaded_image is not None:
     image = Image.open(uploaded_image).convert('RGB')
     st.image(image, caption='Uploaded Image', use_column_width=True)
     
-     class_name = ['fungal_bacterical', 'healthy', 'nutreint']
+    class_name = ['fungal_bacterical', 'healthy', 'nutreint']
 
     if st.button('Predict'):
         try:
