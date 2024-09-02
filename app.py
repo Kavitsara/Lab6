@@ -17,7 +17,7 @@ model = torch.load('model.pth', map_location=device)
 # Uncomment the following line if you are sure that float16 is supported and needed
 # model = model.to(dtype=torch.float16)
 
-model = model.to(device)  # Ensure the model is on the correct device
+model = model.pth(device)  # Ensure the model is on the correct device
 model.eval()  # Set the model to evaluation mode
 
 # Display image & Prediction 
